@@ -1,69 +1,58 @@
-# TodoMVC using Vanilla ES6
+# TodoMVC using Vanilla ES6 (Babel to TypeScript)
 
-## Tutorials
+## 設定步驟說明
 
-1. 安裝 [parcel-bundler](https://www.npmjs.com/package/parcel-bundler) 套件
+1. 將所有 `*.js` 檔案批次更名為 `*.ts` 檔案
 
-   ```sh
-   npm install -g parcel-bundler
+   ```bat
+   cd src
+   rename *.js *.ts
    ```
 
+2. 將所有 `*.js` 檔案中 `import` 語法的 `.js` 部分移除
+
+   例如以下 `import` 語法：
+
    ```sh
-   yarn global add parcel-bundler
+   import Controller from './controller.js';
+   import {$on} from './helpers.js';
+   import Template from './template.js';
+   import Store from './store.js';
+   import View from './view.js';
    ```
 
-2. 修正 `index.html` 將 `type="module"` 移除
+   請全部改成如下：
+
+   ```sh
+   import Controller from './controller';
+   import {$on} from './helpers';
+   import Template from './template';
+   import Store from './store';
+   import View from './view';
+   ```
+
+   > 如果你用 VSCode 的話，可以用全部取代的方式，搭配正規表示式就可以一次取代完成：
+   >
+   > - 搜尋：`import (.*).js';`
+   > - 取代：`import $1';`
+
+3. 修正 TypeScript 型別問題
+
+   請參考[此版本](https://github.com/doggy8088/todomvc-vanilla-es6-modules/commit/72286a378b559532699819c314d7b19c3f662091?diff=split)的變更紀錄。
+
+4. 修正 `index.html` 將 `src/app.js` 修改為 `src/app.ts`
 
    ```html
    <script src="src/app.js"></script>
    ```
 
-3. 加入 npm 設定檔：`package.json`
+   改為
 
-   你可以透過 `npm init -y` 快速建立預設 `package.json` 檔案。
-
-   ```json
-   {
-     "name": "todomvc-vanilla-es6-modules",
-     "version": "1.0.0",
-     "dependencies": {},
-     "devDependencies": {},
-     "scripts": {}
-   }
+   ```html
+   <script src="src/app.ts"></script>
    ```
 
-4. 安裝 `js-polyfills` 套件
-
-   ```sh
-   npm install -D js-polyfills
-   ```
-
-5. 修正 `src/app.js` 檔案，匯入 `js-polyfills` 套件
-
-   ```js
-   import 'js-polyfills';
-   ```
-
-6. 加入 `.gitignore` 版控忽略檔
-
-   ```sh
-   # Dependency directories
-   node_modules/
-
-   # Yarn Integrity file
-   .yarn-integrity
-
-   # parcel-bundler cache (https://parceljs.org/)
-   .cache
-
-   # distribution files
-   dist/
-
-   # package-lock.json file
-   package-lock.json
-   ```
-
-7. 執行 Parcel 並啟動開發伺服器
+5. 執行 Parcel 並啟動開發伺服器
 
    ```sh
    parcel index.html
