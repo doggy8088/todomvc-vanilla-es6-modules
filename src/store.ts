@@ -1,11 +1,13 @@
 import {Item, ItemList, ItemQuery, ItemUpdate, emptyItemQuery} from './item';
 
 export default class Store {
+	getLocalStorage: () => any;
+	setLocalStorage: (todos: any) => void;
 	/**
 	 * @param {!string} name Database name
 	 * @param {function()} [callback] Called when the Store is ready
 	 */
-	constructor(name, callback) {
+	constructor(name, callback?) {
 		/**
 		 * @type {Storage}
 		 */

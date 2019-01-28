@@ -3,6 +3,10 @@ import Store from './store';
 import View from './view';
 
 export default class Controller {
+	store: any;
+	view: any;
+	_activeRoute: string;
+	_lastActiveRoute: any;
 	/**
 	 * @param  {!Store} store A Store instance
 	 * @param  {!View} view A View instance
@@ -133,7 +137,7 @@ export default class Controller {
 	 *
 	 * @param {boolean} [force] Force a re-paint of the list
 	 */
-	_filter(force) {
+	_filter(force?) {
 		const route = this._activeRoute;
 
 		if (force || this._lastActiveRoute !== '' || this._lastActiveRoute !== route) {

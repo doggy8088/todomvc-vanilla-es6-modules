@@ -7,6 +7,13 @@ const ENTER_KEY = 13;
 const ESCAPE_KEY = 27;
 
 export default class View {
+	template: any;
+	$todoList: any;
+	$todoItemCounter: any;
+	$clearCompleted: any;
+	$main: any;
+	$toggleAll: any;
+	$newTodo: any;
 	/**
 	 * @param {!Template} template A Template instance
 	 */
