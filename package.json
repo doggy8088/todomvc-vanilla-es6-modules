@@ -1,0 +1,10 @@
+{
+  "name": "todomvc-vanilla-es6-modules",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "js-polyfills": "^0.1.42",
+    "typescript": "^3.2.4"
+  },
+  "scripts": {}
+}

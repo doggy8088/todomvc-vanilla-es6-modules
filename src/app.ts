@@ -1,3 +1,5 @@
+import 'js-polyfills';
+
 import Controller from './controller';
 import {$on} from './helpers';
 import Template from './template';
