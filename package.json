@@ -2,6 +2,8 @@
   "name": "todomvc-vanilla-es6-modules",
   "version": "1.0.0",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "js-polyfills": "^0.1.42"
+  },
   "scripts": {}
 }
