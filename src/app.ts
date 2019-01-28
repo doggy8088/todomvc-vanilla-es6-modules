@@ -1,10 +1,10 @@
 import 'js-polyfills';
 
-import Controller from './controller.js';
-import {$on} from './helpers.js';
-import Template from './template.js';
-import Store from './store.js';
-import View from './view.js';
+import Controller from './controller';
+import {$on} from './helpers';
+import Template from './template';
+import Store from './store';
+import View from './view';
 
 const store = new Store('todos-vanilla-es6');
 

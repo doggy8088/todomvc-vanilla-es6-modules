@@ -1,6 +1,6 @@
-import {ItemList} from './item.js';
-import {qs, $on, $delegate} from './helpers.js';
-import Template from './template.js';
+import {ItemList} from './item';
+import {qs, $on, $delegate} from './helpers';
+import Template from './template';
 
 const _itemId = element => parseInt(element.parentNode.dataset.id || element.parentNode.parentNode.dataset.id, 10);
 const ENTER_KEY = 13;

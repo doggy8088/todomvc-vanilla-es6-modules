@@ -1,4 +1,4 @@
-import {Item, ItemList, ItemQuery, ItemUpdate, emptyItemQuery} from './item.js';
+import {Item, ItemList, ItemQuery, ItemUpdate, emptyItemQuery} from './item';
 
 export default class Store {
 	/**
