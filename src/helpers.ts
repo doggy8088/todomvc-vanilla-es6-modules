@@ -16,7 +16,7 @@ export function qs(selector, scope) {
  * @param {Function} callback Event callback
  * @param {boolean} [capture] Capture the event
  */
-export function $on(target, type, callback, capture) {
+export function $on(target, type, callback, capture?) {
 	target.addEventListener(type, callback, !!capture);
 }
 

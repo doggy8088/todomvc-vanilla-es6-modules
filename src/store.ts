@@ -1,39 +1,34 @@
 import {Item, ItemList, ItemQuery, ItemUpdate, emptyItemQuery} from './item';
 
 export default class Store {
+
+	/**
+	 * @type {ItemList}
+	 */
+	private liveTodos;
+	/**
+	 * Read the local ItemList from localStorage.
+	 *
+	 * @returns {ItemList} Current array of todos
+	 */
+	getLocalStorage() {
+		return this.liveTodos || JSON.parse(localStorage.getItem(name) || '[]');
+	}
+
+	/**
+	 * Write the local ItemList to localStorage.
+	 *
+	 * @param {ItemList} todos Array of todos to write
+	 */
+	setLocalStorage(todos) {
+		localStorage.setItem(name, JSON.stringify(this.liveTodos = todos));
+	}
+
 	/**
 	 * @param {!string} name Database name
 	 * @param {function()} [callback] Called when the Store is ready
 	 */
-	constructor(name, callback) {
-		/**
-		 * @type {Storage}
-		 */
-		const localStorage = window.localStorage;
-
-		/**
-		 * @type {ItemList}
-		 */
-		let liveTodos;
-
-		/**
-		 * Read the local ItemList from localStorage.
-		 *
-		 * @returns {ItemList} Current array of todos
-		 */
-		this.getLocalStorage = () => {
-			return liveTodos || JSON.parse(localStorage.getItem(name) || '[]');
-		};
-
-		/**
-		 * Write the local ItemList to localStorage.
-		 *
-		 * @param {ItemList} todos Array of todos to write
-		 */
-		this.setLocalStorage = (todos) => {
-			localStorage.setItem(name, JSON.stringify(liveTodos = todos));
-		};
-
+	constructor(name, callback?) {
 		if (callback) {
 			callback();
 		}
